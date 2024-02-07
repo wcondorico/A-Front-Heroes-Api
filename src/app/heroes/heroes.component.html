@@ -1,0 +1,5 @@
+<p class="text-center font-bold text-[30px] text-slate-900">Heroes Details!</p>
+<div class="main-container">
+  <app-heroes-hero [hero]="heroSend" [showData]="showData" (HideData)="hideData()"></app-heroes-hero>
+  <app-heroes-list (showDetailHero)="newMethod($event)"></app-heroes-list>
+</div>

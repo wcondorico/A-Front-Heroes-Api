@@ -1,0 +1,28 @@
+<div class="bg-gray-800 flex flex-col w-96 items-center gap-5 p-5 rounded-lg">
+  @if (showData) {
+  <h1 class="text-center font-bold text-[30px] text-slate-100">
+    {{ hero.name }}
+  </h1>
+  <dl>
+    <dt class="font-bold text-center text-slate-50">Nombre:</dt>
+    <dd class="text-center text-slate-300">{{ hero.name }}</dd>
+
+    <dt class="font-bold text-center text-slate-50">Edad:</dt>
+    <dd class="text-center text-slate-300">{{ hero.age }}</dd>
+
+    <dt class="font-bold text-center text-slate-50">Método</dt>
+    <dd class="text-center text-slate-300">{{ getHeroDescription() }}</dd>
+
+    <dt class="font-bold text-center text-slate-50">Capitalizado</dt>
+    <dd class="text-center text-slate-300">{{ capitalizedName }}</dd>
+  </dl>
+
+  <button (click)="limpiarDatos()" class="bg-teal-200 rounded-lg p-2">
+    Reset
+  </button>
+  } @else(){
+    <h1 class="text-center font-bold text-[30px] text-slate-100">
+      Selecciona un personaje
+    </h1>  
+  }
+</div>
