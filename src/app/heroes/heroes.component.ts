@@ -10,9 +10,13 @@ export class HeroesComponent {
   showData = false;
 
   heroSend : HeroInterface = {
-    id: 0,
+
+    //-------------CORREGIR TRAS LA MODIFICACION-----------------
+
+    id: 1,
     name: 'empty',
-    age: 0
+    age: 100,
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,'
   };
 
 

@@ -1,28 +1,39 @@
-<div class="bg-gray-800 flex flex-col w-96 items-center gap-5 p-5 rounded-lg">
-  @if (showData) {
+<!--- @if (showData) {
+} @else(){
+  <div
+  class="bg-gray-800 flex flex-col w-96 items-center gap-5 p-5 rounded-lg h-20"
+  >
   <h1 class="text-center font-bold text-[30px] text-slate-100">
-    {{ hero.name }}
+    Selecciona un personaje
   </h1>
-  <dl>
-    <dt class="font-bold text-center text-slate-50">Nombre:</dt>
-    <dd class="text-center text-slate-300">{{ hero.name }}</dd>
+  </div>
+}
+-->
 
-    <dt class="font-bold text-center text-slate-50">Edad:</dt>
-    <dd class="text-center text-slate-300">{{ hero.age }}</dd>
-
-    <dt class="font-bold text-center text-slate-50">Método</dt>
-    <dd class="text-center text-slate-300">{{ getHeroDescription() }}</dd>
-
-    <dt class="font-bold text-center text-slate-50">Capitalizado</dt>
-    <dd class="text-center text-slate-300">{{ capitalizedName }}</dd>
-  </dl>
-
-  <button (click)="limpiarDatos()" class="bg-teal-200 rounded-lg p-2">
-    Reset
-  </button>
-  } @else(){
-    <h1 class="text-center font-bold text-[30px] text-slate-100">
-      Selecciona un personaje
-    </h1>  
-  }
+  <div class="bg-gray-800 grid grid-cols-[220px,1fr] items-center gap-5 p-5 rounded-lg relative h-[268px]">
+    <div class="grid justify-center">
+      <div style="background-image: url({{hero.img}})" class="w-36 h-36 rounded-md bg-cover bg-no-repeat bg-center">
+      </div>
+    <h1 class="text-white text-center mt-4 font-semibold">
+      Edad: {{hero.age}} años
+    </h1>
+  </div>
+  
+  <div class="grid h-full">
+    <h1 class="text-center font-bold text-[30px] text-slate-100 mb-3 mt-2">
+      {{ hero.name }}
+    </h1>
+    <p class="text-white opacity-80"> 
+      {{hero.description}}
+    </p>
+  </div>
+  
+  
+  
+  <div class="grid absolute top-0 right-3">
+    <button (click)="limpiarDatos()" 
+    class="bg-white bg-opacity-10 px-2.5 py-1 rounded-[50%] mt-3 text-white/30 font-bold text-[15px]">
+      X
+    </button>
+  </div>
 </div>
