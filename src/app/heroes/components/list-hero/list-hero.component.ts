@@ -1,14 +1,14 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { HeroInterface } from '../hero/hero-interface';
+import { Component, EventEmitter, Input, Output, input } from '@angular/core';
+import { HeroInterface } from '../../interfaces/hero-interfaces';
+
 
 @Component({
   selector: 'app-heroes-list',
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+  templateUrl: './list-hero.component.html',
+  styleUrl: './list-hero.component.css'
 })
-export class ListComponent {
+export class ListComponent{
 
-  
   Heroes : HeroInterface[] = [
     {
       id: 1,
@@ -44,5 +44,9 @@ export class ListComponent {
 
   showData(heroe:HeroInterface){
     this.showDetailHero.emit(heroe)
+  }
+
+  addNewHero(hero : HeroInterface){
+    this.Heroes.push(hero)
   }
 }

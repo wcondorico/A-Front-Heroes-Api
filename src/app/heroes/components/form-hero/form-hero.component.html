@@ -1,0 +1,59 @@
+<form class="bg-gray-800 px-6 py-6 rounded-xl" (submit)="onSendHero()">
+  <div class="grid grid-cols-[3fr,2fr]">
+    <div class="grid mb-4">
+      <label for="name" class="mb-2 text-label text-sm font-bold">Nombre</label>
+      <input
+        type="text"
+        id="name"
+        autocomplete="name"
+        name="Nombre"
+        placeholder="Ingresa el Nombre"
+        [(ngModel)]="newHero.name"
+        class="px-2 py-0.5 bg-opacity-10 bg-white rounded-lg text-white placeholder:opacity-90 placeholder:text-sm w-44"
+      />
+    </div>
+    <div class="grid mb-4">
+      <label for="age" class="mb-2 text-label text-sm font-bold">Edad</label>
+      <input
+        type="text"
+        id="age"
+        autocomplete="age"
+        name="Edad"
+        placeholder="Ingresa la Edad"
+        [(ngModel)]="newHero.age"
+        class="px-2 py-0.5 bg-opacity-10 bg-white rounded-lg text-white placeholder:opacity-90 placeholder:text-sm w-32"
+      />
+    </div>
+  </div>
+  <div class="grid mb-4">
+    <label for="img" class="mb-2 text-label text-sm font-bold">Link de imágen</label>
+    <input
+      type="text"
+      id="img"
+      autocomplete="img"
+      name="img"
+      placeholder="Ingresa el link de la imágen"
+      [(ngModel)]="newHero.img"
+      class="px-2 py-0.5 bg-opacity-10 bg-white rounded-lg text-white placeholder:opacity-90 placeholder:text-sm"
+    />
+  </div>
+  <div class="grid mb-4">
+    <label for="desc" class="mb-2 text-label text-sm font-bold"
+      >Descripción</label
+    >
+    <textarea
+      type="text"
+      id="desc"
+      autocomplete="desc"
+      name="Descripción"
+      placeholder="Ingresa la Descripción"
+      [(ngModel)]="newHero.description"
+      class="px-2 py-1 bg-opacity-10 bg-white rounded-lg text-white placeholder:opacity-90"
+    ></textarea>
+  </div>
+  <div class="grid">
+    <button type="submit" class="bg-white bg-opacity-20 p-2 rounded-xl mt-3 text-white/80 font-bold">
+      Agregar Personaje
+    </button>
+  </div>
+</form>

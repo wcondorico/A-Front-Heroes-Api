@@ -1,22 +1,20 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { HeroInterface } from './hero-interface';
+import { HeroInterface } from '../../interfaces/hero-interfaces';
 
 @Component({
-  selector: 'app-heroes-hero',
-  templateUrl: './hero.component.html',
-  styleUrl: './hero.component.css'
+  selector: 'app-heroes-detail',
+  templateUrl: './detail-hero.component.html',
+  styleUrl: './detail-hero.component.css'
 })
-export class HeroComponent {
+export class HeroDetailComponent {
   @Input() showData = false
 
   @Input() hero : HeroInterface = {
     id: 0,
     name: '',
     age: 0,
-  }
-  
-  protected getHeroDescription() : string {
-    return `${this.hero.name} - ${this.hero.age}`
+    img: '',
+    description: ''
   }
 
   get capitalizedName() : string {
