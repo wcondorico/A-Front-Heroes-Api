@@ -8,6 +8,7 @@ import { HeroInterface } from '../../interfaces/hero-interfaces';
 })
 export class FormHeroComponent {
   public newHero: HeroInterface = {
+    id: '',
     name: '',
     age: null,
     img: '',
@@ -20,6 +21,7 @@ export class FormHeroComponent {
   onSendHero() {
     this.sendHero.emit(this.newHero);
     const voidHero: HeroInterface = {
+      id: '',
       name: '',
       age: null,
       img: '',

@@ -12,23 +12,19 @@ export class HeroesComponent {
   @ViewChild(ListComponent)
   list!: ListComponent;
 
-  heroDetailSend : HeroInterface = {
-    id: 0,
-    name: 'empty',
-    age: 0,
-    description: ''
-  };
+  heroDetailSend! : HeroInterface;
 
   onShowDetailHero(heroReceived : HeroInterface){
     this.heroDetailSend = heroReceived
     this.showData = true;
   }
 
-  hideData(){
-    this.showData=false
+  hideData(data:boolean){
+    this.showData=data
   }
 
   receiveNewHero(newHeroReceived : HeroInterface){
+    console.log('listExample', this.list);
     const heroListSend : HeroInterface = newHeroReceived
     this.list.addNewHero(heroListSend)
   }

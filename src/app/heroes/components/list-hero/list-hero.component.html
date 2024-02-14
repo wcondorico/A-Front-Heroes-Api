@@ -7,13 +7,22 @@
       </div>
       <div class="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         
-
-        @for(heroes of Heroes; track heroes.name) {
-          <div (click)="showData(heroes)" class="relative group bg-gray-900 py-10 sm:py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
-            <img class="w-20 h-20 object-cover object-center rounded-full" src={{heroes.img}} alt="cuisine" />
-            <h4 class="text-white text-2xl font-bold capitalize text-center">{{heroes.name}}</h4>
-            <p class="text-white/50">{{heroes.age}} years</p>
+        @for(hero of serv.Heroes; track hero.id) {
+          <div (click)="showData(hero)" class="relative group bg-gray-900 py-10 sm:py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
+            <img class="w-20 h-20 object-cover object-center rounded-full" src={{hero.img}} alt="cuisine" />
+            <h4 class="text-white text-2xl font-bold capitalize text-center">{{hero.name}}</h4>
+            <p class="text-white/50">{{hero.age}} years</p>
+            
+            <div class="grid absolute top-0 right-3 z-10">
+              <button
+                (click)="deleteHero(hero.id)"
+                class="bg-white bg-opacity-10 px-2.5 py-1 rounded-[50%] mt-3 text-white/30 
+                font-bold text-[15px] hover:bg-opacity-20 "
+              >
+                X
+              </button>
             </div>
+          </div>
         }
         
       </div>

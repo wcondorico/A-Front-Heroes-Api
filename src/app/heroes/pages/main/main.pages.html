@@ -5,7 +5,7 @@
       <app-heroes-detail
         [hero]="heroDetailSend"
         [showData]="showData"
-        (HideData)="hideData()"
+        (HideData)="hideData($event)"
       ></app-heroes-detail>
       <app-heroes-form 
       (sendHero)="receiveNewHero($event)"
@@ -14,7 +14,7 @@
   </div>
 
   <div>
-    <app-heroes-list 
+    <app-heroes-list
     (showDetailHero)="onShowDetailHero($event)"
     
     ></app-heroes-list>

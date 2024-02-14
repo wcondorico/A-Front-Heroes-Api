@@ -8,14 +8,7 @@ import { HeroInterface } from '../../interfaces/hero-interfaces';
 })
 export class HeroDetailComponent {
   @Input() showData = false
-
-  @Input() hero : HeroInterface = {
-    id: 0,
-    name: '',
-    age: 0,
-    img: '',
-    description: ''
-  }
+  @Input() hero! : HeroInterface;
 
   get capitalizedName() : string {
     return this.hero.name.toUpperCase();
