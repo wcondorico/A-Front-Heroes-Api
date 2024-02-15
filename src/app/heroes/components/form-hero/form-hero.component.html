@@ -16,11 +16,11 @@
       <label for="age" class="mb-2 text-label text-sm font-bold">Edad</label>
       <input
         type="text"
+        name="Edad"
+        [(ngModel)]="newHero.age"
         id="age"
         autocomplete="age"
-        name="Edad"
         placeholder="Ingresa la Edad"
-        [(ngModel)]="newHero.age"
         class="px-2 pb-0.5 bg-opacity-10 bg-white rounded-lg text-white placeholder:opacity-90 placeholder:text-sm w-32"
       />
     </div>

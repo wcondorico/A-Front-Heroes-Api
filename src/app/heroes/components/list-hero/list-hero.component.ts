@@ -24,5 +24,6 @@ export class ListComponent{
 
   deleteHero(id: string){
     this.listServ.deleteHero(id);
+    this.showServ.showHero.id==id ? this.showServ.showData=false:null;
   }
 }

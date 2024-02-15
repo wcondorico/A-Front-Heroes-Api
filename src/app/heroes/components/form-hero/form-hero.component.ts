@@ -5,10 +5,11 @@ import { ListHeroService } from '../../services/list-hero.service';
 @Component({
   selector: 'app-heroes-form',
   templateUrl: './form-hero.component.html',
-  styleUrl: './form-hero.component.css',
+  styleUrl: './form-hero.component.css'
 })
 export class FormHeroComponent {
   private readonly listServ: ListHeroService = inject(ListHeroService)
+  
 
   public newHero: HeroInterface = {
     id: '',
