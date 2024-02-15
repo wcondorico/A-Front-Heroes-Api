@@ -2,21 +2,12 @@
 
   <div class="flex justify-center items-center w-full p-5">
     <div class="grid grid-cols-[minmax(500px,872px)_auto] mx-4 gap-5 justify-between max-w-6xl">
-      <app-heroes-detail
-        [hero]="heroDetailSend"
-        [showData]="showData"
-        (HideData)="hideData($event)"
-      ></app-heroes-detail>
-      <app-heroes-form 
-      (sendHero)="receiveNewHero($event)"
-      ></app-heroes-form>
+      <app-heroes-detail></app-heroes-detail>
+      <app-heroes-form></app-heroes-form>
     </div>
   </div>
 
   <div>
-    <app-heroes-list
-    (showDetailHero)="onShowDetailHero($event)"
-    
-    ></app-heroes-list>
+    <app-heroes-list></app-heroes-list>
   </div>
 </div>

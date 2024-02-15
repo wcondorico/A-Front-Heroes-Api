@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeroInterface } from '../../interfaces/hero-interfaces';
+import { showDetailHero } from '../../services/showDetailHero.service';
 
 @Component({
   selector: 'app-heroes-detail',
@@ -7,17 +8,20 @@ import { HeroInterface } from '../../interfaces/hero-interfaces';
   styleUrl: './detail-hero.component.css'
 })
 export class HeroDetailComponent {
-  @Input() showData = false
-  @Input() hero! : HeroInterface;
+  private readonly dataService:showDetailHero = inject(showDetailHero)
 
-  get capitalizedName() : string {
+  get hero(): HeroInterface{
+    return this.dataService.showHero;
+  }
+  get showData(): boolean{
+    return this.dataService.showData
+  }
+
+  get capitalizedName(): string {
     return this.hero.name.toUpperCase();
   }
 
-  @Output() HideData = new EventEmitter();
-
-  limpiarDatos(){
-    this.showData=false;
-    this.HideData.emit(this.showData)
+  limpiarDatos(): void{
+    this.dataService.showData=false;
   }
 }

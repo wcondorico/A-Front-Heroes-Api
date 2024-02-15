@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeroInterface } from '../../interfaces/hero-interfaces';
 import { ListHeroService } from '../../services/list-hero.service'
+import { showDetailHero } from '../../services/showDetailHero.service';
 
 @Component({
   selector: 'app-heroes-list',
@@ -8,21 +9,20 @@ import { ListHeroService } from '../../services/list-hero.service'
   styleUrl: './list-hero.component.css'
 })
 export class ListComponent{
+  private readonly listServ = inject(ListHeroService)
+  private readonly showServ = inject(showDetailHero)
 
-  protected readonly serv = inject(ListHeroService)
-
-  @Output() showDetailHero = new EventEmitter()
-
-  addNewHero(hero : HeroInterface){
-    this.serv.addNewHero(hero)
+  get Heroes() {
+    return this.listServ.Heroes
   }
 
-  showData(hero:HeroInterface){
-    this.showDetailHero.emit(hero)
+
+  showData(hero: HeroInterface){
+    this.showServ.showHero=hero
+    this.showServ.showData=true
   }
 
-  deleteHero(id:string){
-    this.serv.deleteHero(id);
-    
+  deleteHero(id: string){
+    this.listServ.deleteHero(id);
   }
 }

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeroInterface } from '../../interfaces/hero-interfaces';
+import { ListHeroService } from '../../services/list-hero.service';
 
 @Component({
   selector: 'app-heroes-form',
@@ -7,6 +8,8 @@ import { HeroInterface } from '../../interfaces/hero-interfaces';
   styleUrl: './form-hero.component.css',
 })
 export class FormHeroComponent {
+  private readonly listServ: ListHeroService = inject(ListHeroService)
+
   public newHero: HeroInterface = {
     id: '',
     name: '',
@@ -15,11 +18,9 @@ export class FormHeroComponent {
     description: '',
   };
 
-  @Output()
-  sendHero = new EventEmitter();
-
   onSendHero() {
-    this.sendHero.emit(this.newHero);
+    this.listServ.addNewHero(this.newHero)
+    
     const voidHero: HeroInterface = {
       id: '',
       name: '',
