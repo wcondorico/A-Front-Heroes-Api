@@ -1,7 +1,7 @@
 export interface HeroInterface {
-  id: string
+  id?: number,
   name : string,
-  age: number|null,
+  age: string|null,
   img?: string,
   description?: string
 }

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { HeroInterface } from '../../interfaces/hero-interfaces';
-import { ListHeroService } from '../../services/list-hero.service';
+import { ApiService } from '../../services/apiService.service';
 
 @Component({
   selector: 'app-heroes-form',
@@ -8,11 +8,9 @@ import { ListHeroService } from '../../services/list-hero.service';
   styleUrl: './form-hero.component.css'
 })
 export class FormHeroComponent {
-  private readonly listServ: ListHeroService = inject(ListHeroService)
-  
+  private readonly apiServ: ApiService = inject(ApiService)
 
   public newHero: HeroInterface = {
-    id: '',
     name: '',
     age: null,
     img: '',
@@ -20,12 +18,12 @@ export class FormHeroComponent {
   };
 
   onSendHero() {
-    this.listServ.addNewHero(this.newHero)
+    this.apiServ.addNewHero(this.newHero)
+    this.apiServ.showList()
     
     const voidHero: HeroInterface = {
-      id: '',
       name: '',
-      age: null,
+      age: '',
       img: '',
       description: '',
     };
